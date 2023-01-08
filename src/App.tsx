@@ -17,7 +17,7 @@ function App() {
         { id: 5, title: "Yos", isDone: false },
         { id: 6, title: "Yosh", isDone: false },
         { id: 7, title: "Yoshi", isDone: false },
-        { id: 8, title: "Yoshigava", isDone: false },
+        { id: 8, title: "Alisher", isDone: false },
     ]
     return (
         <div className="App">
