@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './App.css';
 import { TodolistComponent } from './components/TodolistComponent';
 
+export type FilteredButtonNameType = "All" | "Completed" | "Active"
+
 function App() {
 
     const title1 = "First Title";
@@ -26,33 +28,30 @@ function App() {
         setTasks(tasks.filter((taskElem) => taskElem.id !== taskID))
     }
 
-    // let durshlag = tasks
-    // durshlag = tasks.filter((taskElem) => !taskElem.isDone);
-    // console.log(durshlag);
 
-    let [filtedButtonName, setFiltedButtonName] = useState('All')
+    // let [filteredButtonName, setFiltedButtonName] = useState<FilteredButtonNameType>('All')
+    // console.log(filteredButtonName)
 
-    let durshlag = tasks;
+    // let durshlag = tasks;
 
-    if (filtedButtonName === 'Active') {
-        durshlag = tasks.filter((taskElem) => !taskElem.isDone);
-    }
-    if (filtedButtonName === 'Completed') {
-        durshlag = tasks.filter((taskElem) => taskElem.isDone);
-    }
+    // if (filteredButtonName === 'Active') {
+    //     durshlag = tasks.filter((taskElem) => taskElem.isDone);
+    // }
+    // if (filteredButtonName === 'Completed') {
+    //     durshlag = tasks.filter((taskElem) => !taskElem.isDone);
+    // }
 
 
-    const filteredCurrentTasks = (nameButton: string) => {
-        setFiltedButtonName(nameButton);
-    }
+    // const filteredCurrentTasks = (nameButton: FilteredButtonNameType) => {
+    //     setFiltedButtonName(nameButton);
+    // }
 
     return (
         <div className="App">
             <TodolistComponent
                 title={title1}
-                tasks={durshlag}
+                tasks={tasks}
                 taskRemoveFunc={taskRemoveFunc}
-                filteredCurrentTasks={filteredCurrentTasks}
             />
         </div>
     );
