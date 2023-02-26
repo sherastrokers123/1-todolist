@@ -3,15 +3,17 @@
 type TodolistComponentPropsType = {
     title: string,
     tasks: TasksPropsType[],
-    taskRemoveFunc: (taskID: number) => void
+    taskRemoveFunc: (taskID: number) => void,
+    filteredCurrentTasks: (nameButton: string) => void,
 
 }
 
 type TasksPropsType = {
     id: number,
     title: string,
-    isDone: boolean
+    isDone: boolean,
 }
+
 
 
 export const TodolistComponent = (props: TodolistComponentPropsType) => {
@@ -35,9 +37,9 @@ export const TodolistComponent = (props: TodolistComponentPropsType) => {
                 })}
             </ul>
             <div>
-                <button>All</button>
-                <button>Active</button>
-                <button>Completed</button>
+                <button onClick={() => props.filteredCurrentTasks("All")}>All</button>
+                <button onClick={() => props.filteredCurrentTasks("Active")}>Active</button>
+                <button onClick={() => props.filteredCurrentTasks("Completed")}>Completed</button>
             </div>
         </div>
     )
