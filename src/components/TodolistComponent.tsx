@@ -1,7 +1,10 @@
 
+
 type TodolistComponentPropsType = {
     title: string,
-    tasks: TasksPropsType[]
+    tasks: TasksPropsType[],
+    taskRemoveFunc: (taskID: number) => void
+
 }
 
 type TasksPropsType = {
@@ -9,6 +12,7 @@ type TasksPropsType = {
     title: string,
     isDone: boolean
 }
+
 
 export const TodolistComponent = (props: TodolistComponentPropsType) => {
     return (
@@ -22,7 +26,8 @@ export const TodolistComponent = (props: TodolistComponentPropsType) => {
                 {props.tasks.map((taskObjecttFromArray, index) => {
                     return (
                         <li key={index}>
-                            <button onClick={() => console.log("HELLO")}>X</button>
+                            {/* 4 через пропсы вызвал 2- скобки */}
+                            <button onClick={() => props.taskRemoveFunc(taskObjecttFromArray.id)}>X</button>
                             <input type="checkbox" checked={taskObjecttFromArray.isDone} />
                             <span>{taskObjecttFromArray.title}</span>
                         </li>
